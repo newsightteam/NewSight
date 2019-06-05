@@ -1,0 +1,109 @@
+<title>content</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+<!--.bgimg {-->
+<!--    border: 0;-->
+<!--    padding: 0;-->
+<!--    background-image: url('https://svgsilh.com/svg/149364.svg');-->
+<!--    min-height: 100%;-->
+<!--    background-position: center;-->
+<!--    background-size: cover;-->
+
+
+}
+</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="bgimg">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                <img style="max-width:100px; margin-top: -7px;"
+                     src="//www.google.com/favicon.ico">
+            </a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://127.0.0.1:8000/main/">Home</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/">Category</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/">Topic</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/contents/">Contents</a></li>
+            </ul>
+			<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action=".">
+				<div class="form-group">
+					<input  id="q" type="text" class="search-query form-control" autocomplete="off" placeholder="Search..."  name="q" value="{{ q }}">
+				</div>
+			</form>
+		</div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="jumbotron">
+<!--      토픽별 기사 출현 빈도 시계열 그래프-->
+        <h1><p class="text-center">{{cat}} Category 기사 시계열 그래프</p></h1>
+        <div align="center">
+			{% load staticfiles %}
+            <img src="{% static 'images/'|add:cat|add:'_ts.jpg' %}"/>
+        </div>
+<!--      토픽별 대표기사 시간순 정렬-->
+<!--        <div class="text-center"><i class="fa fa-5x fa-frown-o" style="color:#d9534f;"></i></div>-->
+    </div>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="content bg-blue" align="center">
+    <h1 class="tab center bounds padding active"><span>Topic별 대표 기사</span></h1>
+    <div class="bounds padding">
+		<table>
+            <tr>
+                <td><B>Topic</B></td>
+                <td><B>Date</B></td>
+                <td><B>Title</B></td>
+            </tr>
+             {% for id, date, title in cat_df %}
+             <tr>
+                <td width="70">{{forloop.counter}}</td>
+                <td width="100">{{date}}</td>
+                 <td class="{{id}}">
+                     <a href="http://127.0.0.1:8000/main/category/topic/contents?id={{id}}">
+                         {{title}}
+                     </a>
+                 </td>
+            </tr>
+            {% endfor %}
+         </table>
+	</div>
+</div>
+</div>

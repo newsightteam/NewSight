@@ -1,0 +1,126 @@
+
+{% load staticfiles %}
+<title>content</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                <img style="max-width:100px; margin-top: -7px;"
+                     src="//www.google.com/favicon.ico">
+            </a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://127.0.0.1:8000/main/">Home</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/">Category</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/">Topic</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/contents/">Contents</a></li>
+            </ul>
+			<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action=".">
+				<div class="form-group">
+					<input  id="q" type="text" class="search-query form-control" autocomplete="off" placeholder="Search..."  name="q" value="{{ q }}">
+				</div>
+			</form>
+		</div>
+
+    </div>
+</div>
+
+<!--<div class="container">-->
+<!--    <div class="jumbotron">-->
+<!--      <div style=' height: auto; weigth: 300'>-->
+<!--&lt;!&ndash;        <div class="text-center"><i class="fa fa-5x fa-frown-o" style="color:#d9534f;"></i></div>&ndash;&gt;-->
+<!--          <h1 class="text-left">{{q}}<p> </p></h1>-->
+<!--          <p class="text-left">{{post_list}}</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+#circle-shape-example {
+  font-family: Open Sans, sans-serif;
+  margin: 2rem;
+}
+#circle-shape-example p {
+  line-height: 1.8;
+}
+#circle-shape-example .curve {
+  width: 33%; height: auto;
+  min-width: 200px;
+  float: left;
+  margin-right:2rem;
+  border-radius: 100%;
+  -webkit-shape-outside:circle();
+  shape-outside:circle();
+}
+
+
+
+
+    </style>
+{% load staticfiles %}
+  </head>
+
+  <body>
+
+
+    <div style="margin: 100px;" align="left ">
+        <table>
+            <tr>
+                <td><B>동일 Topic Wordcloud</B></td>
+                <td><B>동일 Topic 기사들</B></td>
+            </tr>
+            <tr>
+                <td>{% load staticfiles %}
+                    <img src="{% static 'images/'|add:img_name|add:'.jpg' %}"/></td>
+                <td>
+                    {% for title, id in topic_df %}
+                    <li><a href="http://127.0.0.1:8000/main/category/topic/contents?id={{id}}">
+                         {{title}}
+                     </a></li>
+                    {% endfor %}
+                </td>
+            </tr>
+
+    </div>
+    <div id="circle-shape-example" style="margin: 150px;" align="left ">
+         {% for title, content in detail_df %}
+         <h1>{{title}}</h1>
+         <br/>
+         <p>본문내용</p>
+         <p>{{content}}</p>
+         {% endfor %}
+         <br/>
+    </div>
+
+
+     <body>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://demosthenes.info/assets/scripts/extras/shapes.js'></script>
+

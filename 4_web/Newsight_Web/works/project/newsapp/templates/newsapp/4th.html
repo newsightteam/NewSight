@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4th</title>
+    {% load staticfiles %}
+</head>
+<body>
+     {% for title, content in detail_df %}
+     <h1>{{title}}</h1>
+     <br/>
+     <p>{{content}}</p>
+     {% endfor %}
+     <br/>
+    <img src="{% static 'images/'|add:img_name|add:'.jpg' %}"/>
+</body>
+</html>

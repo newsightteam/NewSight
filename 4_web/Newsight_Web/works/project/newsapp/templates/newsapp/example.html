@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>topic_page</title>
+</head>
+    <body>
+        <menubar>
+            <div class="right-area" >
+                <form action="cate_page/" method="get">
+                    <input type="text" name="q" value="{{ q }}" placeholder="Search here">
+                    <input type="submit" value="검색">
+                </form>
+            </div><!-- right-area -->
+            <ul class="main-menu" id="main-menu">
+                <li><a href="http://127.0.0.1:8000/main_page/">Home</a></li>
+    <!--            <li class="drop-down"><a href="#!">Sport<i class="ion-arrow-down-b"></i></a>-->
+    <!--                <ul class="drop-down-menu drop-down-inner">-->
+    <!--                    <li><a href="#">PAGE 1</a></li>-->
+    <!--                    <li><a href="#">PAGE 2</a></li>-->
+    <!--                </ul>-->
+    <!--            </li>-->
+                <li><a href="http://127.0.0.1:8000/cate_page/">category page</a></li>
+                <li><a href="http://127.0.0.1:8000/topic_page">Topic page</a></li>
+                <li><a href="http://127.0.0.1:8000/news_page">news page</a></li>
+<!--                <li><a href="#">검색창</a></li>-->
+    <!--            <li><a href="#">Art</a></li>-->
+    <!--            <li><a href="#">Fashion</a></li>-->
+    <!--            <li><a href="#">Contact</a></li>-->
+            </ul>
+        </menubar>
+
+        <div align="center">
+            <img src="{% static 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2af1uvXzJ1s8IdDeBf_8lqLbwcn1COIp-ZtUoqOFY-FxHRsh4MA'%}" width="700" , height="400" alt="My Image">
+        </div>
+        <div align="center">
+            <img src="https://media.tenor.com/images/deee91803f20b7c66ca97dbc7d492cf4/tenor.gif" width="700" , height="400" alt="My Image">
+        </div>
+    </body>
+</html>

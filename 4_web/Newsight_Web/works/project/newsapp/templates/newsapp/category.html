@@ -1,0 +1,68 @@
+<head>
+<title>category</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+{% load staticfiles %}
+</head>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                <img style="max-width:100px; margin-top: -7px;"
+                     src="//www.google.com/favicon.ico">
+            </a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://127.0.0.1:8000/main/">Home</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/">Category</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/">Topic</a></li>
+                <li><a href="http://127.0.0.1:8000/main/category/topic/contents/">Contents</a></li>
+            </ul>
+			<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action=".">
+				<div class="form-group">
+					<input  id="q" type="text" class="search-query form-control" autocomplete="off" placeholder="Search..."  name="q" value="{{ q }}">
+				</div>
+			</form>
+		</div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+<!--      토픽별 기사 출현 빈도 시계열 그래프-->
+        <div align="center">
+            <h1><p class="text-center"><b>{{query}} 주요 기사 Category</b></p></h1>
+            <img src="{% static 'images/cat_wc.jpg'%}"/>
+            <table>
+                <tr>
+                    {% for cat in cat_list %}
+                    <td width="300" align="center">
+                        <a href="http://127.0.0.1:8000/main/category/topic?c={{cat}}"><h1>{{cat}}</h1></a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+
+        <div align="center">
+           <h1><p class="text-center"><b>{{query}} 기사 시계열 그래프</b></p></h1>
+           <img src="{% static 'images/total_ts.jpg'%}"/>
+        </div>
+    </div>
+
+</div>
